@@ -98,6 +98,8 @@ public class NewsSpider {
 					showPoetryTextMapper.insertSelective(newsText);
 				} catch (Exception e) {
 					e.printStackTrace();
+				}finally{
+					
 				}
 			}
 		}
