@@ -132,8 +132,8 @@
 								<a href="/qizaodian/readerShowTextById.do?id=${news.id}"
 									class="btn btn-default">阅读全文</a> <a id="thumbs-up"
 									class="fa fa-thumbs-up" href="javascript:;"
-									onclick="abc(${ind.index},${news.id});" class="btn btn-default"><span
-									class="thumbs" id="abc${ind.index }">&nbsp;${news.praise}</span></a>
+									onclick="abc(${ind.index},${news.id});" class="btn btn-default">&nbsp;<span
+									class="thumbs" id="abc${ind.index }">${news.praise}</span></a>
 							</div>
 							<div class="post-url">
 								<p class="post-down "
