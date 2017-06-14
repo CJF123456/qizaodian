@@ -1,6 +1,8 @@
 package com.unbank.spider.controller;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -65,7 +67,7 @@ public class ShowController extends CommonController {
 			}
 			tagmap.put(title.getId(), tags);
 		}
-		model.addAttribute("single",1);
+		model.addAttribute("single", 1);
 		model.addAttribute("righttag", shows);
 		model.addAttribute("tags", tagmap);
 		return "/index";
@@ -76,20 +78,20 @@ public class ShowController extends CommonController {
 	public String readShowTitleById(Integer id, Model model) {
 		List<ShowTitle> showtitles = service.readShowTitleById(id);
 		model.addAttribute("newsList", showtitles);
-	
+
 		return "/index";
 	}
 
 	// 通过Tid查询标题 标签查标题
 	@RequestMapping(value = "readShowTitleByTid")
 	public String readShowTitleByTid(String tid, Model model) {
-//		long start = System.currentTimeMillis();
+		// long start = System.currentTimeMillis();
 		List<ShowTitle> showtitles = service.readShowTitleByTid(tid);
 		List<ShowTag> shows = service.readerShowTagsbyconuts();
 		model.addAttribute("newsList", showtitles);
 		model.addAttribute("righttag", shows);
-//		long end = System.currentTimeMillis();
-//		System.out.println("====================="+(end-start)+"MS");
+		// long end = System.currentTimeMillis();
+		// System.out.println("====================="+(end-start)+"MS");
 		return "/index";
 	}
 
@@ -121,11 +123,11 @@ public class ShowController extends CommonController {
 	// 通过ID查询标签
 	@RequestMapping(value = "readerShowTagById")
 	public String readerShowTagById(HttpServletResponse response, HttpSession session, Integer id, Model model) {
-//		long start = System.currentTimeMillis();
+		// long start = System.currentTimeMillis();
 		List<ShowTag> shows = service.readerShowTagById(id);
 		model.addAttribute("newsList1", shows);
-//		long end = System.currentTimeMillis();
-//		System.out.println("====================="+(end-start)+"MS");
+		// long end = System.currentTimeMillis();
+		// System.out.println("====================="+(end-start)+"MS");
 		return "/index";
 	}
 
@@ -212,8 +214,8 @@ public class ShowController extends CommonController {
 		String author = showpoetrys.get(0).getAuthor();
 		String text = showpoetrytexts.get(0).getText();
 		String brief = showpoetrys.get(0).getBrief();
-		String source=showpoetrys.get(0).getSource();
-		String url=showpoetrys.get(0).getRe();
+		String source = showpoetrys.get(0).getSource();
+		String url = showpoetrys.get(0).getRe();
 		map.put("brief", brief);
 		map.put("source", source);
 		map.put("title", title);
@@ -229,13 +231,20 @@ public class ShowController extends CommonController {
 		model.addAttribute("url", url);
 		return "/poetrydetail";
 	}
-	
-	
-	//获取赞并更新
-		@RequestMapping(value = "updatepraise")
-		public void updatePraise(HttpServletResponse response, HttpSession session, Integer id,Integer praise) {
-		int prid=	service.updatePraise(id,praise);
-		if (prid>0) {
+
+	// 获取赞并更新
+	@RequestMapping(value = "updatepraise")
+	public void updatePraise(HttpServletResponse response, HttpSession session, Integer id, Integer praise) {
+		int prid = service.updatePraise(id, praise);
+		if (prid > 0) {
 		}
-		}
+	}
+
+	// 获取赞并更新
+	@RequestMapping(value = "loadTest")
+	public void loadTest(HttpServletResponse response, HttpSession session) {
+		System.out.println("----");
+		TianyanchaSpider.main(null);
+		
+	}
 }

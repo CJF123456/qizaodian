@@ -56,8 +56,8 @@ public class BhiFengZongExcelxlsMaker extends WordLorder {
 	}
 
 	public static void main(String[] args) {
-		String startTime = "2017-02-01";
-		String endTime = "2017-02-28";
+		String startTime = "2017-05-01";
+		String endTime = "2017-05-19";
 		new BhiFengZongExcelxlsMaker().wangjuan(startTime, endTime, "");
 		String[] areas = new String[] { "湖南", "江苏", "内蒙古", "河北", "陕西", "山东",
 				"安徽", "山西", "江西", "广东", "宁夏", "福建", "四川", "辽宁", "广西", "湖北",

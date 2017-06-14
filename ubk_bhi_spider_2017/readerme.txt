@@ -38,4 +38,4 @@ String startTime = SimpleTools.getyyyyMMddTimeString(new Date(), -1);
 String endTime = SimpleTools.getyyyyMMddTimeString(new Date(), -1);
 修改收件人信息
 3.启动quartz_spring.xml的中日报和工行邮件的定时
-4.处理stp数据
+4.处理ftp数据

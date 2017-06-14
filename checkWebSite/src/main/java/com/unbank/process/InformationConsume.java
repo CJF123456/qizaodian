@@ -33,7 +33,7 @@ public class InformationConsume implements Runnable {
 
 		}
 
-	}
+	}  
 
 	private void checkNoCrawlReson(WebSiteInfo webSiteInfo) {
 		String reson = new CheckNoCrawlSource().checkUrl(
